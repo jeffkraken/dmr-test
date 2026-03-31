@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - LLM_ENDPOINT=http://llm:8000
+    depends_on:
+      - llm
+
+  llm:
+    build: ./llm
+    ports:
+      - "8000:8000"
